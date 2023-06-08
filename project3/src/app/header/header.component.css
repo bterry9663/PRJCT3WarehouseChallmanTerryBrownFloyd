@@ -1,9 +1,16 @@
 header {
     font-size: 30px;
-    text-align: center;
+    text-align: left;
     background-color:#191816 ;
     text-transform: uppercase;
     padding-top: .5em;
     font-weight: bold;
+    height: 100px;
+}
+
+img {
     height: 80px;
+    width: 80px;
+    vertical-align: middle;
+    padding-left: 1em;
 }

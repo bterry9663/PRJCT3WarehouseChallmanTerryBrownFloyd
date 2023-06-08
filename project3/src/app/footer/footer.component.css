@@ -1,0 +1,16 @@
+footer {
+    background-color: #1B353C;
+    height: 7em;
+    text-align: center;
+}
+
+img {
+    height: 3em;
+    width: 3em;
+    padding-top: .5em;
+}
+
+p {
+    color: whitesmoke;
+    padding: 0%;
+}
