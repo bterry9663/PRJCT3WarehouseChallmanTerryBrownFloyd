@@ -10,6 +10,9 @@ import { ArtifactComponent } from './artifact/artifact.component';
 import { ModelsComponent } from './models/models.component';
 import { NavComponent } from './nav/nav.component';
 import { ServicesComponent } from './services/services.component';
+import { WarehousesComponent } from './warehouses/warehouses.component';
+import { WarehouseComponent } from './warehouse/warehouse.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ServicesComponent } from './services/services.component';
     ArtifactComponent,
     ModelsComponent,
     NavComponent,
-    ServicesComponent
+    ServicesComponent,
+    WarehousesComponent,
+    WarehouseComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

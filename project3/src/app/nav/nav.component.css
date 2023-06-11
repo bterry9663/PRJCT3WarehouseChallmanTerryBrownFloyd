@@ -1,13 +1,14 @@
 nav {
-    background-color:#3a4750;
-    font-size: 18px;
+    background-color: #344043;
+    font-size: 15px;
     text-transform: capitalize;
-    margin-top: 14px;
+    text-align: center;
+    height: 3.5em;
 }
 
 nav > a {
     text-decoration: none;
-    padding: .5em 1em;
+    padding:1em 1em 1em 5em;
     display: inline-block;
     color: white;
 }
