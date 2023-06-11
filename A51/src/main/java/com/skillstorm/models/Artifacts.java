@@ -25,7 +25,7 @@ public class Artifacts {
 	private String origin;
 	@Column(name = "time_frame")
 	private String timeFrame;
-	@Column(name = "location")
+	@Column(name = "current_location")
 	private String location;
 
 	public Artifacts() {}
