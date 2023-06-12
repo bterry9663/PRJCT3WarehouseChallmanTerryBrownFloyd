@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +12,10 @@ import { ServicesComponent } from './services/services.component';
 import { WarehousesComponent } from './warehouses/warehouses.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { HomeComponent } from './home/home.component';
+import { CategoryComponent } from './category/category.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArtifactDetailsComponent } from './artifact-details/artifact-details.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +29,16 @@ import { HomeComponent } from './home/home.component';
     ServicesComponent,
     WarehousesComponent,
     WarehouseComponent,
-    HomeComponent
+    HomeComponent,
+    CategoryComponent,
+    ArtifactDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
