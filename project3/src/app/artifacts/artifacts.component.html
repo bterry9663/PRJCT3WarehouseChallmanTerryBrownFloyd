@@ -1,1 +1,67 @@
-<p>artifacts works!</p>
+<main>
+    
+    <h1>View All Artifacts</h1>
+
+
+    <form [formGroup] = "addForm">
+
+        <h2>Add a New Artifact</h2>
+        <h2>Update Artifact</h2>
+
+       <!-- <h2 *ngIf="!chosenArtifactId">Add a New Artifact</h2>
+        <h2 *ngIf="chosenArtifactId">Update Artifact</h2> -->
+
+        <label for="name">Artifact</label>
+        <input type="text" id="name" name="name" formControlName="name"> 
+      
+        <p *ngIf="name!.invalid && (name!.touched || name!.dirty)">
+         
+            <span *ngIf="name!.errors?.['required']">Artifact name is required!</span>
+            <span *ngIf="name!.errors?.['maxLength']">Artifact name must be 60 characters or less!</span>
+
+        </p>
+
+        <label for="warehouse">Warehouse</label>
+        <select name="warehouse" id="warehouse" name="warehouse" formControlName="warehouse">
+
+                <option value="">Select a warehouse...</option>
+
+           <!--  <ng-container *ngFor="let artist of localArtists">
+                <option [value]="artist.artistId">{{ artist.name }}</option>
+            </ng-container> -->
+
+        </select>
+
+        <label for="current_location">Current Location</label>
+        <input type="text" id="current_location" name="current_location" formControlName="current_location">
+
+        <label for="origin">Genre</label>
+        <input type="text" id="origin" name="origin" formControlName="origin">
+
+        <label for="time_frame">Time Frame</label>
+        <input type="text" id="time_frame" name="time_frame" formControlName="time_frame">
+
+        <label for="image_link">Image URL</label>
+        <input type="text" id="image_link" name="image_link" formControlName="image_link">
+
+        <div>
+            <button>ADD NEW ARTIFACT</button>
+
+            <button>UPDATE ARTIFACT</button>
+
+            <button>CANCEL UPDATE</button>
+        </div>
+
+    </form>
+
+   <!-- <ng-container *ngFor="let artifact of localArtifacts"> 
+
+        <app-album [artifact]="artifact" 
+                   (deleteArtifactEvent)="deleteArtifact($event)"
+                   (updateArtifactEvent)="chooseArtifact($event)" >
+        </app-album>
+
+    </ng-container> -->
+
+
+</main>
