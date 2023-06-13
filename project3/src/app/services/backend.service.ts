@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Artifact } from '../models/artifact';
-import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -34,25 +33,5 @@ export class BackendService {
   addArtifactInBody(artifact: Artifact): Observable<HttpResponse<any>> {
     return this.http.post<any>(this.url + 'artifact', artifact, { observe: 'response' });
   }
-
-  getAllCategories(): Observable<any> {
-    return this.http.get<any>(this.url + 'category',
-                              { observe: 'response' });
-  }
-
-  addNewCategory(category: Category): Observable<HttpResponse<any>> {
-    return this.http.post<any>(this.url + 'category', category, { observe: 'response' });
-  }
-
-  deleteCategoryInBody(category: Category): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(this.url + 'category', 
-                                 { observe: 'response', body: category });
-  }
-
-  updateCategory(category: Category): Observable<HttpResponse<any>> {
-    return this.http.put<any>(this.url + 'category', category, { observe: 'response' });
-  }
-
-
 
 }
