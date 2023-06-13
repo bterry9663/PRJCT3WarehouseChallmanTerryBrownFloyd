@@ -13,11 +13,11 @@ import javax.persistence.Table;
 
 
 @Entity 
-@Table(name = "artifacts")
+@Table(name = "items")
 public class Artifacts {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "item_id")
 	private int id;
 	@Column(name = "name")
 	private String name;
@@ -25,23 +25,29 @@ public class Artifacts {
 	private String origin;
 	@Column(name = "time_frame")
 	private String timeFrame;
-	@Column(name = "current_location")
-	private String location;
+	@Column(name = "aisle_shelf")
+	private String shelf;
+	@Column(name = "image_link")
+	private String image;
+	@Column(name = "warehouse_id")
+	private int warehouseId;
 
 	public Artifacts() {}
-	public Artifacts(int id, String name, String origin, String timeFrame, String location) {
+	public Artifacts(int id, String name, String origin, String timeFrame, String shelf, String image, int warehouseId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.origin = origin;
 		this.timeFrame = timeFrame;
-		this.location = location;
+		this.shelf = shelf;
+		this.image= image;
+		this.warehouseId = warehouseId;
 	}
 
-		public int getId() {
+		public int getItemId() {
 			return id;
 	}
-		public void setId(int id) {
+		public void setItemId(int id) {
 			this.id = id;
 	}
 		public String getName() {
@@ -62,20 +68,27 @@ public class Artifacts {
 	public void setTimeFrame(String timeFrame) {
 		this.timeFrame = timeFrame;
 	}
-	public String getLocation() {
-		return location;
+	public String getShelf() {
+		return shelf;
 	}
-	public void setLocation(String location) {
-		this.location = location;
-		}
-	@Override
-	public String toString() {
-		return "Artifacts [id=" + id + ", name=" + name + ", origin=" + origin + ", timeFrame=" + timeFrame + ", location="
-				+ location + "]";
+	public void setShelf(String shelf) {
+		this.shelf = shelf;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public int getWarehouseId() {
+		return warehouseId;
+	}
+	public void setWarehouseId(int warehouseId) {
+		this.warehouseId = warehouseId;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, location, name, origin, timeFrame);
+		return Objects.hash(image, id, name, origin, shelf, timeFrame, warehouseId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -86,9 +99,18 @@ public class Artifacts {
 		if (getClass() != obj.getClass())
 			return false;
 		Artifacts other = (Artifacts) obj;
-		return id == other.id && Objects.equals(location, other.location) && Objects.equals(name, other.name)
-				&& Objects.equals(origin, other.origin) && Objects.equals(timeFrame, other.timeFrame);
+		return Objects.equals(image, other.image) && id == other.id && Objects.equals(name, other.name)
+				&& Objects.equals(origin, other.origin) && Objects.equals(shelf, other.shelf)
+				&& Objects.equals(timeFrame, other.timeFrame) && warehouseId == other.warehouseId;
 	}
+	@Override
+	public String toString() {
+		return "Artifacts [id=" + id + ", name=" + name + ", origin=" + origin + ", timeFrame=" + timeFrame
+				+ ", shelf=" + shelf + ", image=" + image + ", warehouseId=" + warehouseId + "]";
+	}
+	
+
+	
 
 
 }
