@@ -4,6 +4,7 @@ import { ArtifactsComponent } from './artifacts/artifacts.component';
 import { HomeComponent } from './home/home.component';
 import { WarehousesComponent } from './warehouses/warehouses.component';
 import { ArtifactDetailsComponent } from './artifact-details/artifact-details.component';
+import { WarehouseComponent } from './warehouse/warehouse.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,17 @@ const routes: Routes = [
   },
 
   {
+    path: 'warehouse',
+    component: WarehouseComponent
+  },
+
+  {
     path: 'artifact/details/:id',
     component: ArtifactDetailsComponent
+  },
+  {
+    path: '**',
+    component: ArtifactsComponent
   }
 
 ];

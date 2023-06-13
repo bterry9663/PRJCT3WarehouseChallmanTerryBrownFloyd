@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Artifact } from '../models/artifact';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Warehouse } from '../models/warehouse';
 
 
 @Component({
@@ -12,12 +13,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ArtifactsComponent {
 
 localArtifacts: any = [];
+localWarehouses: any = [];
 
 
 constructor(private backendService: BackendService,
             private fb: FormBuilder) {
 
   this.getAllArtifacts();
+  this.getAllWarehouses();
 
 }
 
@@ -30,7 +33,7 @@ addForm = this.fb.group(
                                     Validators.maxLength(1000)])],
     origin: ['', Validators.compose([Validators.required,
                                     Validators.maxLength(1000)])],
-    currentLocation: ['', Validators.compose([Validators.required,
+    current_location: ['', Validators.compose([Validators.required,
                                               Validators.maxLength(1000)])],
     imageUrl: ['', Validators.compose([Validators.required,
                                        Validators.maxLength(1000)])],
@@ -100,8 +103,58 @@ addArtifact(): void {
                      .subscribe(() => this.getAllArtifacts());
 }
   
+getAllWarehouses(): void {
+  this.localWarehouses = [];
 
+  this.backendService.getAllWarehouses().subscribe(data => {
+    for (let warehouse of data.body) {
+      this.localWarehouses.push(new Warehouse(warehouse.warehouse_id,
+                                        // Warehouse.name, 
+                                        // Warehouse.type, 
+                                        // Warehouse.founded
+                                        ));
+    };
 
+    
+    this.localWarehouses.sort((a: Warehouse, b: Warehouse) => a.warehouse_id === (b.warehouse_id));
+  });
+}
+chosenArtifactId: number = 0;
+
+  chooseArtifact(artifact: Artifact): void {
+    this.chosenArtifactId = artifact.artifactId;
+
+    this.addForm.setValue({
+      name: artifact.name,
+      time_frame: artifact.time_frame,
+      origin: artifact.origin,
+      current_location: artifact.current_location,
+      warehouse_id: String(artifact.warehouse_id),
+      imageUrl: artifact.imageUrl
+    })
+
+  }
+
+  cancelUpdate(): void {
+    this.addForm.reset();
+    this.chosenArtifactId = 0;
+  }
+
+  updateArtifact(): void {
+    this.backendService.updateArtifactWithParams(new Artifact(this.chosenArtifactId,
+                                                        this.name?.value!,
+                                                        this.time_frame?.value!,
+                                                        this.origin?.value!,
+                                                        this.current_location?.value!,
+                                                        this.imageUrl?.value!,
+                                                        Number(this.warehouse_id?.value!)
+                                                        ))
+                        .subscribe(() => {
+                          this.getAllArtifacts();
+                          this.addForm.reset();
+                          this.chosenArtifactId = 0;
+                        });
+  }
 
 
 }

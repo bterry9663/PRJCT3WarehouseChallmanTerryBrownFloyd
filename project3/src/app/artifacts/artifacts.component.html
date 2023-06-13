@@ -8,8 +8,8 @@
         <h2>Add a New Artifact</h2>
         <h2>Update Artifact</h2>
 
-       <!-- <h2 *ngIf="!chosenArtifactId">Add a New Artifact</h2>
-        <h2 *ngIf="chosenArtifactId">Update Artifact</h2> -->
+       <h2 *ngIf="!chosenArtifactId">Add a New Artifact</h2>
+        <h2 *ngIf="chosenArtifactId">Update Artifact</h2>
 
         <label for="name">Artifact</label>
         <input type="text" id="name" name="name" formControlName="name"> 
@@ -26,9 +26,9 @@
 
                 <option value="">Select a warehouse...</option>
 
-           <!--  <ng-container *ngFor="let artist of localArtists">
-                <option [value]="artist.artistId">{{ artist.name }}</option>
-            </ng-container> -->
+            <ng-container *ngFor="let warehouse of localWarehouses">
+                <option [value]="warehouse.warehouse_id">{{ warehouse.warehouse_id }}</option>
+            </ng-container>
 
         </select>
 
@@ -54,14 +54,14 @@
 
     </form>
 
-   <!-- <ng-container *ngFor="let artifact of localArtifacts"> 
+   <ng-container *ngFor="let artifact of localArtifacts"> 
 
-        <app-album [artifact]="artifact" 
+        <app-artifact [artifact]="artifact" 
                    (deleteArtifactEvent)="deleteArtifact($event)"
                    (updateArtifactEvent)="chooseArtifact($event)" >
-        </app-album>
+        </app-artifact>
 
-    </ng-container> -->
+    </ng-container>
 
 
 </main>
