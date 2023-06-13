@@ -22,7 +22,7 @@ public class ArtifactsServices 	{
 	
 	
 	public Artifacts addArtifact(Artifacts artifact) {
-		artifact.setId(0);
+		artifact.setItemId(0);
 		return artifactsRepo.save(artifact);
 		
 	}
