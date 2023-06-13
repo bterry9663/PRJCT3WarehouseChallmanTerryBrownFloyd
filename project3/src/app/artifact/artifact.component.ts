@@ -13,6 +13,7 @@ export class ArtifactComponent {
 
   
   @Output() deleteArtifactEvent = new EventEmitter<Artifact>();
+  @Output() updateArtifactEvent = new EventEmitter<Artifact>();
 
   
   @Input() artifact: Artifact = new Artifact(0, '', '', '', '', '', 0);
@@ -20,6 +21,10 @@ export class ArtifactComponent {
 
  deleteArtifact(): void {
    this.deleteArtifactEvent.emit(this.artifact);
+  }
+
+  updateArtifact(): void {
+    this.updateArtifactEvent.emit(this.artifact);
   }
 
   getArtifactDetails() {
