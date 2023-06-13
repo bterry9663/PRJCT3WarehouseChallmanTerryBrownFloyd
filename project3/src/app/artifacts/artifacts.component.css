@@ -1,14 +1,22 @@
-form {
-    padding: 20px;
-    background-color: rgb(225, 225, 225);
-    border-radius: 6px;
-    margin-bottom: 20px;
+h1 {
+    text-align: center;
+    margin: 2em ;
+    padding: auto;
 }
 
 h2 {
     font-size: 20px;
     margin: 0px 0px 20px 0px;
 
+}
+
+form {
+    padding: 20px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: gray 3px 3px 5px;
+    width: auto;
 }
 
 label {
@@ -39,6 +47,7 @@ form button {
     font-weight: bold;
     margin-right: 10px;
     border-radius: 20px;
+    box-shadow: gray 1px 1px 4px;
 
 }
 
