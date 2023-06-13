@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Artifact } from '../models/artifact';
-import { Category } from '../models/category';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,12 +13,18 @@ export class ArtifactComponent {
 
   
   @Output() deleteArtifactEvent = new EventEmitter<Artifact>();
+  @Output() updateArtifactEvent = new EventEmitter<Artifact>();
 
   
-  @Input() artifact: Artifact = new Artifact(0, '', new Category(0, '', '', ''), '', '', '', '');
+  @Input() artifact: Artifact = new Artifact(0, '', '', '', '', '', 0);
+ 
 
  deleteArtifact(): void {
    this.deleteArtifactEvent.emit(this.artifact);
+  }
+
+  updateArtifact(): void {
+    this.updateArtifactEvent.emit(this.artifact);
   }
 
   getArtifactDetails() {

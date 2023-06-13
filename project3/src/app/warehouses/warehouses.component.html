@@ -1,10 +1,10 @@
 <main>
     <h1>View All Warehouses</h1>
 
-    <!-- <h3 *ngIf="!localWarehouses.length" style="color: red;">No warehouses in the database!</h3> -->
+    <h3 *ngIf="!localWarehouses.length" style="color: red;">No warehouses in the database!</h3> 
 
-   <!--<table *ngIf="localWarehouses.length"> -->
-       <table>
+   <table *ngIf="localWarehouses.length">
+       
 
         <thead>
             <tr>
@@ -14,14 +14,14 @@
             </tr>
         </thead>
 
-        <!-- <tbody>
+        <tbody>
 
             <ng-container *ngFor="let warehouse of localWarehouses; let i = index;">
    
                  <tr [ngClass]="{
                     'oddRow': i % 2 === 1,
                     'evenRow': i % 2 === 0
-                }" (click)="chooseArtist(artist)">
+                }" (click)="chooseWarehouse(warehouse)">
                     <td>{{ warehouse.warehouseId }}</td>
                     <td>{{ warehouse.address }}</td>
                     <td>{{ warehouse.specialty }}</td>
@@ -29,7 +29,7 @@
 
             </ng-container> 
 
-        </tbody> -->
+        </tbody>
 
     </table>
 

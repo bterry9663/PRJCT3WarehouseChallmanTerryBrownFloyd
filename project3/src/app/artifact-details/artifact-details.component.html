@@ -1,14 +1,15 @@
-<!-- <main>
-    <h1>View Album Details</h1>
+<main>
+    <h1>View Artifact Details</h1>
 
-    <img [src]="localArtifact.imageUrl" [alt]="localArtifact.title + ' by ' + localArtifact.warehouse.name">
+    <img [src]="localArtifact.imageUrl" [alt]="localArtifact.name + ' in ' + localArtifact.warehouse_id">
 
     <h2>{{ localArtifact.name }}</h2>
-    <h3>{{ localArtifact.warehosue.name }} (<span>{{ localArtifact.warehosue.origin }}, founded in {{ localArtifact.warehosue.time_frame }}</span>)</h3>
+    <h3>{{ localArtifact.warehouse_id }} (<span>{{ localArtifact.current_location }}</span>)</h3>
 
     <ul>
         <li>Time Frame: {{ localArtifact.time_frame }}</li>
-        <li>Current Location: {{ localArtifact.current_loaction }}</li>
+        <li> Origin: {{ localArtifact.origin }}</li>
+       
     </ul>
     
-</main> -->
+</main>
