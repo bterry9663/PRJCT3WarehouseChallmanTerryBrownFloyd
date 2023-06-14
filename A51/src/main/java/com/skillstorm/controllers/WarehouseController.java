@@ -38,7 +38,7 @@ public class WarehouseController {
 		return new ResponseEntity<>(warehouse, HttpStatus.OK);
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Warehouse> getWarehouseById(@PathVariable("Id") Integer id){
+	public ResponseEntity<Warehouse> getWarehouseById(@PathVariable("id") Integer id){
 		Warehouse warehouse = warehouseService.findWarehousebyId(id);
 		return new ResponseEntity<>(warehouse, HttpStatus.OK);
 		

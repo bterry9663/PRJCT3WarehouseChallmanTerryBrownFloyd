@@ -13,25 +13,25 @@ export class BackendService {
   constructor(private http: HttpClient) { }
 
   getAllArtifacts(): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'artifact',
+    return this.http.get<any>(this.url + 'items',
                               { observe: 'response' });}
 
   deleteArtifactById(artifact: Artifact): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(`${this.url}artifact/${artifact.artifactId}`, 
+    return this.http.delete<any>(`${this.url}items/${artifact.artifactId}`, 
                                   { observe: 'response' });}
 
   deleteArtifactInBody(artifact: Artifact): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(this.url + 'artifact', 
+    return this.http.delete<any>(this.url + 'items', 
                                   { observe: 'response', body: artifact });
   }
 
   getArtifactById(artifactId: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'artifact/' + artifactId,
+    return this.http.get<any>(this.url + 'items/find/' + artifactId,
                               { observe: 'response' });
   }
 
   addArtifactInBody(artifact: Artifact): Observable<HttpResponse<any>> {
-    return this.http.post<any>(this.url + 'artifact', artifact, { observe: 'response' });
+    return this.http.post<any>(this.url + 'items', artifact, { observe: 'response' });
   }
 
   updateArtifactWithParams(artifact: Artifact): Observable<HttpResponse<any>> {
@@ -44,7 +44,7 @@ export class BackendService {
                                      .set('warehouseId', artifact.warehouseId)
 ;
 
-    return this.http.put<any>(this.url + 'artifact/' + artifact.artifactId, {}, { observe: 'response',
+    return this.http.put<any>(this.url + 'items/' + artifact.artifactId, {}, { observe: 'response',
                                                                   params: parameters });
   }
 
@@ -52,7 +52,10 @@ export class BackendService {
     return this.http.get<any>(this.url + 'warehouse',
                               { observe: 'response' });
   }
-
+  getAllArtifactByWarehouseId(artifactId: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.url + 'items/' + artifactId,
+                              { observe: 'response' });
+  }
 
 
 }
