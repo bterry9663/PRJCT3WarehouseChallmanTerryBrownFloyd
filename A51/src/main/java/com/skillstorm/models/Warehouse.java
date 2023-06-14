@@ -23,17 +23,17 @@ public class Warehouse {
 	@Column(name = "manager")
 	private String manager;
 	@Column(name = "max_capacity")
-	private int max_capacity;
+	private int max;
 	
 	
 	
 		public Warehouse() {}
-		public Warehouse(int warehouseId, String location, String manager, int max_capacity) {
+		public Warehouse(int warehouseId, String location, String manager, int max) {
 			super();
 			this.warehouseId = warehouseId;
 			this.location = location;
 			this.manager= manager;
-			this.max_capacity = max_capacity;
+			this.max = max;
 			
 		}
 		
@@ -56,11 +56,11 @@ public class Warehouse {
 		public void setManager(String manager) {
 			this.manager = manager;
 		}
-		public int getMax_capacity() {
-			return max_capacity;
+		public int getMax() {
+			return max;
 		}
-		public void setMax_capacity(int max_capacity) {
-			this.max_capacity = warehouseId;
+		public void setMax(int max) {
+			this.max = max;
 		}
 		
 		
@@ -70,7 +70,7 @@ public class Warehouse {
 		
 		@Override
 		public int hashCode() {
-			return Objects.hash(warehouseId, location, manager, max_capacity);
+			return Objects.hash(warehouseId, location, manager, max);
 		}
 
 		@Override
@@ -88,7 +88,7 @@ public class Warehouse {
 		@Override
 		public String toString() {
 			return "Warehouse [warehouseId=" + warehouseId + ", location=" + location + ", manager=" + manager + 
-					", max_capacity=" + max_capacity +  "]";
+					", max_capacity=" + max +  "]";
 		}
 
 		
