@@ -1,17 +1,17 @@
 export class Warehouse {
-    warehouse_id: number = 0;
-    // name: string = '';
-    // type: string = '';
-    // founded: number = 0;
+    warehouseId: string = '';
+     location: string = '';
+     manager: string = '';
+     max_capacity: number = 0;
 
-    constructor(warehouse_id: number,
-                // name: string,
-                // type: string,
-                // founded: number
+    constructor(warehouseId: string,
+                 location: string,
+                 manager: string,
+                 max_capacity: number
                 ) {
-        this.warehouse_id = warehouse_id;
-        // this.name = name;
-        // this.type = type;
-        // this.founded = founded;
+        this.warehouseId = warehouseId;
+        this.location = location;
+        this.manager = manager;
+        this.max_capacity = max_capacity;
     }
 }

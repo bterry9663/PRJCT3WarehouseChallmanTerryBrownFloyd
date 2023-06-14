@@ -8,7 +8,6 @@ import { ArtifactsComponent } from './artifacts/artifacts.component';
 import { ArtifactComponent } from './artifact/artifact.component';
 import { NavComponent } from './nav/nav.component';
 import { WarehousesComponent } from './warehouses/warehouses.component';
-import { WarehouseComponent } from './warehouse/warehouse.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { ArtifactDetailsComponent } from './artifact-details/artifact-details.co
     ArtifactComponent,
     NavComponent,
     WarehousesComponent,
-    WarehouseComponent,
     HomeComponent,
     ArtifactDetailsComponent
   ],

@@ -1,10 +1,10 @@
 <main>
     <h1>View Artifact Details</h1>
 
-    <img [src]="localArtifact.imageUrl" [alt]="localArtifact.name + ' in ' + localArtifact.warehouse_id">
+    <img [src]="localArtifact.imageUrl" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
 
     <h2>{{ localArtifact.name }}</h2>
-    <h3>{{ localArtifact.warehouse_id }} (<span>{{ localArtifact.current_location }}</span>)</h3>
+    <h3>{{ localArtifact.warehouseId }} (<span>{{ localArtifact.current_location }}</span>)</h3>
 
     <ul>
         <li>Time Frame: {{ localArtifact.time_frame }}</li>

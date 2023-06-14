@@ -6,7 +6,7 @@ export class Artifact {
     origin: string = '';
     current_location: string = '';
     imageUrl: string = '';
-    warehouse_id: number = 0;
+    warehouseId: string = '';
 
     constructor(artifactId: number,
                 name: string,
@@ -14,14 +14,14 @@ export class Artifact {
                 origin: string,
                 current_location: string,
                 imageUrl: string,
-                warehouse_id: number) {
+                warehouseId: string) {
         this.artifactId = artifactId;
         this.name = name;
         this.time_frame = time_frame;
         this.origin = origin;
         this.current_location = current_location;
         this.imageUrl = imageUrl;
-        this.warehouse_id = warehouse_id;
+        this.warehouseId = warehouseId;
     }
 
 }

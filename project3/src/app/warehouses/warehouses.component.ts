@@ -8,31 +8,44 @@ import { Warehouse } from '../models/warehouse';
   styleUrls: ['./warehouses.component.css']
 })
 export class WarehousesComponent {
+addWarehouse() {
+throw new Error('Method not implemented.');
+}
+updateWarehouse() {
+throw new Error('Method not implemented.');
+}
+cancelUpdate() {
+throw new Error('Method not implemented.');
+}
+deleteWarehouse($event: Event) {
+throw new Error('Method not implemented.');
+}
 
   localWarehouses: any = [];
 
-  chosenWarehouse_id: number = 0;
-  // formName: string = '';
-  // formType: string = '';
-  // formFounded: string = '';
+  chosenWarehouseId: string = '';
+  formLocation: string = '';
+  formManager: string = '';
+  formMax_capacity: string = '';
 
   canDelete: boolean = false;
 
+
   constructor(private backendService: BackendService) {
-    this.getAllWarehouses();
+    this.getAllWarehouse();
   }
 
-  getAllWarehouses(): void {
+  getAllWarehouse(): void {
     this.localWarehouses = [];
-    this.backendService.getAllWarehouses().subscribe(
+    this.backendService.getAllWarehouse().subscribe(
       {  
         next: data => {
 
-          for (let warehouse of data.body) {
-            this.localWarehouses.push(new Warehouse(warehouse.warehouse_id,
-                                              // warehouse.name,
-                                              // warehouse.type,
-                                              // warehouse.founded
+          for (let warehouses of data.body) {
+            this.localWarehouses.push(new Warehouse(warehouses.warehouseId,
+                                               warehouses.location,
+                                               warehouses.manager,
+                                               warehouses.max_capacity
                                               ));
           }
         },
@@ -50,9 +63,9 @@ export class WarehousesComponent {
   }
 
   chooseWarehouse(warehouse: Warehouse): void {
-    this.backendService.getAllArtifacts().subscribe(data => {
+    this.backendService.getAllWarehouse().subscribe(data => {
       for (let artifact of data.body) {
-        if (artifact.warehouse.warehouse_id === warehouse.warehouse_id) {
+        if (artifact.warehouse.warehouseId === warehouse.warehouseId) {
           this.canDelete = false;
           break;
         } else {
@@ -62,17 +75,17 @@ export class WarehousesComponent {
     });
 
 
-    this.chosenWarehouse_id = warehouse.warehouse_id;
-    // this.formName = Warehouse.name;
-    // this.formType = Warehouse.type;
-    // this.formFounded = String(Warehouse.founded);
+    this.chosenWarehouseId = warehouse.warehouseId;
+    this.formLocation = warehouse.location;
+    this.formManager = warehouse.manager;
+    this.formMax_capacity = String(warehouse.max_capacity);
   }
 
   clearForm(): void {
-    this.chosenWarehouse_id = 0;
-    // this.formName = '';
-    // this.formType = '';
-    // this.formFounded = '';
+    this.chosenWarehouseId = '';
+    this.formLocation = '';
+    this.formManager = '';
+    this.formMax_capacity = '';
   }
 
 
