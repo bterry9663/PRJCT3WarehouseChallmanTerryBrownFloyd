@@ -54,14 +54,88 @@
 
     </form>
 
-   <ng-container *ngFor="let artifact of localArtifacts"> 
+    <table *ngIf="localArtifacts.length">
 
-        <app-artifact [artifact]="artifact" 
-                   (deleteArtifactEvent)="deleteArtifact($event)"
-                   (updateArtifactEvent)="chooseArtifact($event)" >
-        </app-artifact>
+        <thead>
+            <tr>
+                <th>Artifact Id</th>
+                <th>Name</th>
+                <th>Time Frame</th>
+                <th>Origin</th>
+                <th>Aisle/Shelf</th>
+                <th>Image Link</th>
+                <th>Warehouse Id</th>
+         </tr>
+        </thead>
 
-    </ng-container>
+        <tbody>
+          
+            <ng-container *ngFor="let artifact of localArtifacts; let i = index;">
+               
+                <tr [ngClass]="{
+                    'oddRow': i % 2 === 1,
+                    'evenRow': i % 2 === 0
+                }"
+                 (click)="chooseArtifact(artifact)">
+                    <td>{{ artifact.artifactId }}</td>
+                    <td>{{ artifact.name }}</td>
+                    <td>{{ artifact.time_frame }}</td>
+                    <td>{{ artifact.origin }}</td>
+                    <td>{{ artifact.current_location }}</td>
+                    <td>{{ artifact.imageUrl}}</td>
+                    <td>{{ artifact.warehouseId }}</td>
+                </tr>
+
+            </ng-container>
+
+        </tbody>
+
+    </table>
 
 
 </main>
+
+<!-- <main>
+    <h1>View All Artifacts</h1>
+
+    <h3 *ngIf="!localArtifacts.length" style="color: red;">No Artifacts in the database!</h3>
+
+    <table *ngIf="localArtifacts.length">
+
+        <thead>
+            <tr>
+                <th>Artifact Id</th>
+                <th>Name</th>
+                <th>Time Frame</th>
+                <th>Origin</th>
+                <th>Aisle/Shelf</th>
+                <th>Image Link</th>
+                <th>Warehouse Id</th>
+         </tr>
+        </thead>
+
+        <tbody>
+          
+            <ng-container *ngFor="let artifact of localArtifacts; let i = index;">
+               
+                <tr [ngClass]="{
+                    'oddRow': i % 2 === 1,
+                    'evenRow': i % 2 === 0
+                }"
+                 (click)="chooseWarehouse(warehouse)">
+                    <td>{{ artifact.artifactId }}</td>
+                    <td>{{ artifact.name }}</td>
+                    <td>{{ artifact.time_frame }}</td>
+                    <td>{{ artifact.origin }}</td>
+                    <td>{{ artifact.current_location }}</td>
+                    <td>{{ artifact.imageUrl}}</td>
+                    <td>{{ artifact.warehouseId }}</td>
+                </tr>
+
+            </ng-container>
+
+        </tbody>
+
+    </table>
+
+</main> -->
