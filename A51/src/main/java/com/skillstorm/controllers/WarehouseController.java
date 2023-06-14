@@ -2,6 +2,7 @@ package com.skillstorm.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.models.Warehouse;
-
+import com.skillstorm.repositories.WarehouseRepository;
 import com.skillstorm.services.WarehouseServices;
 
 @RestController
@@ -23,6 +24,9 @@ import com.skillstorm.services.WarehouseServices;
 @CrossOrigin("*")
 public class WarehouseController {
 
+	@Autowired
+	private WarehouseRepository repo;
+	@Autowired
 	private WarehouseServices warehouseService;
 	
 	public WarehouseController(WarehouseServices warehouseService) {

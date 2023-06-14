@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtifactDetailsComponent {
 
-  localArtifact: Artifact = new Artifact(0, '', '', '', '', '', 0);
+  localArtifact: Artifact = new Artifact(0, '', '', '', '', '', '');
 
   constructor(private backendService: BackendService,
               private activatedRoute: ActivatedRoute) {
@@ -23,7 +23,7 @@ export class ArtifactDetailsComponent {
                                         data.body.origin,
                                         data.body.current_location,
                                         data.body.imageUrl,
-                                        data.body.warehouse_id);
+                                        data.body.warehouseId);
     })
 
   }

@@ -18,9 +18,7 @@ public class ArtifactsServices 	{
         this.artifactsRepo = artifactsRepo;
     }
 	
-	
-	
-	
+		
 	public Artifacts addArtifact(Artifacts artifact) {
 		artifact.setItemId(0);
 		return artifactsRepo.save(artifact);

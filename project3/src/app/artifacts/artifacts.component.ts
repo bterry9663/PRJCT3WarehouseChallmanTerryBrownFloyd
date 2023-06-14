@@ -37,7 +37,7 @@ addForm = this.fb.group(
                                               Validators.maxLength(1000)])],
     imageUrl: ['', Validators.compose([Validators.required,
                                        Validators.maxLength(1000)])],
-    warehouse_id: ['', Validators.compose([Validators.required,
+    warehouseId: ['', Validators.compose([Validators.required,
                                           Validators.min(1),
                                           Validators.max(5)])],
                                       }
@@ -58,8 +58,8 @@ get current_location() {
 get imageUrl() {
   return this.addForm.get('imageUrl');
 }
-get warehouse_id() {
-  return this.addForm.get('warehouse_id');
+get warehouseId() {
+  return this.addForm.get('warehouseId');
 }
 
 getAllArtifacts(): void {
@@ -76,7 +76,7 @@ getAllArtifacts(): void {
                                             artifact.origin,
                                             artifact.current_location,
                                             artifact.imageUrl,
-                                            artifact.warehouse_id));
+                                            artifact.warehouseId));
     }
 
     console.log(this.localArtifacts);
@@ -98,7 +98,7 @@ addArtifact(): void {
                                                this.origin?.value!,
                                                this.current_location?.value!,
                                                this.imageUrl?.value!,
-                                               Number(this.warehouse_id?.value!)
+                                               this.warehouseId?.value!
                                                ))
                      .subscribe(() => this.getAllArtifacts());
 }
@@ -106,17 +106,17 @@ addArtifact(): void {
 getAllWarehouses(): void {
   this.localWarehouses = [];
 
-  this.backendService.getAllWarehouses().subscribe(data => {
+  this.backendService.getAllWarehouse().subscribe(data => {
     for (let warehouse of data.body) {
-      this.localWarehouses.push(new Warehouse(warehouse.warehouse_id,
-                                        // Warehouse.name, 
-                                        // Warehouse.type, 
-                                        // Warehouse.founded
+      this.localWarehouses.push(new Warehouse(warehouse.warehouseId,
+                                        warehouse.location, 
+                                        warehouse.manager, 
+                                        warehouse.max_capacity
                                         ));
     };
 
     
-    this.localWarehouses.sort((a: Warehouse, b: Warehouse) => a.warehouse_id === (b.warehouse_id));
+    this.localWarehouses.sort((a: Warehouse, b: Warehouse) => a.warehouseId === (b.warehouseId));
   });
 }
 chosenArtifactId: number = 0;
@@ -129,7 +129,7 @@ chosenArtifactId: number = 0;
       time_frame: artifact.time_frame,
       origin: artifact.origin,
       current_location: artifact.current_location,
-      warehouse_id: String(artifact.warehouse_id),
+      warehouseId: artifact.warehouseId,
       imageUrl: artifact.imageUrl
     })
 
@@ -147,7 +147,7 @@ chosenArtifactId: number = 0;
                                                         this.origin?.value!,
                                                         this.current_location?.value!,
                                                         this.imageUrl?.value!,
-                                                        Number(this.warehouse_id?.value!)
+                                                        this.warehouseId?.value!
                                                         ))
                         .subscribe(() => {
                           this.getAllArtifacts();

@@ -1,35 +1,39 @@
 <main>
     <h1>View All Warehouses</h1>
 
-    <h3 *ngIf="!localWarehouses.length" style="color: red;">No warehouses in the database!</h3> 
+    <h3 *ngIf="!localWarehouses.length" style="color: red;">No Warehouse in the database!</h3>
 
-    <table *ngIf="localWarehouses.length"> 
+    <table *ngIf="localWarehouses.length">
 
         <thead>
             <tr>
                 <th>Warehouse ID</th>
-                <th>Address</th>
-                <th>Specialty</th>
-            </tr>
+                <th>Location</th>
+                <th>Manager</th>
+               <th>Capacity</th>
+         </tr>
         </thead>
 
         <tbody>
-
+          
             <ng-container *ngFor="let warehouse of localWarehouses; let i = index;">
-   
-                 <tr [ngClass]="{
+               
+                <tr [ngClass]="{
                     'oddRow': i % 2 === 1,
                     'evenRow': i % 2 === 0
-                }" (click)="chooseWarehouse(warehouse)">
+                }"
+                 (click)="chooseWarehouse(warehouse)">
                     <td>{{ warehouse.warehouseId }}</td>
-                    <td>{{ warehouse.address }}</td>
-                    <td>{{ warehouse.specialty }}</td>
+                   <td>{{ warehouse.location }}</td>
+                    <td>{{ warehouse.manager }}</td>
+                    <td>{{ warehouse.max_capacity }}</td>
                 </tr>
 
-            </ng-container> 
+            </ng-container>
 
-        </tbody> 
+        </tbody>
 
     </table>
 
 </main> 
+

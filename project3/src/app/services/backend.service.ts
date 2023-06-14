@@ -41,14 +41,14 @@ export class BackendService {
                                      .set('time_frame', artifact.time_frame)
                                      .set('current_location', artifact.current_location)
                                      .set('imageUrl', artifact.imageUrl)
-                                     .set('warehouse_id', artifact.warehouse_id)
+                                     .set('warehouseId', artifact.warehouseId)
 ;
 
     return this.http.put<any>(this.url + 'artifact/' + artifact.artifactId, {}, { observe: 'response',
                                                                   params: parameters });
   }
 
-  getAllWarehouses(): Observable<any> {
+  getAllWarehouse(): Observable<any> {
     return this.http.get<any>(this.url + 'warehouse',
                               { observe: 'response' });
   }

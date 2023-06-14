@@ -20,7 +20,7 @@ import com.skillstorm.repositories.ArtifactsRepository;
 import com.skillstorm.services.ArtifactsServices;
 
 	@RestController
-	@RequestMapping("/artifact")
+	@RequestMapping("/items")
 	@CrossOrigin("*")
 	public class ArtifactsController  {
 		
