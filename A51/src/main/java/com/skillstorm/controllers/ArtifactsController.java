@@ -42,6 +42,13 @@ import com.skillstorm.services.ArtifactsServices;
 	public ResponseEntity<Artifacts> getArtifactsById(@PathVariable("id") Integer id){
 		Artifacts artifact = artifactService.findArtifactById(id);
 		return new ResponseEntity<>(artifact, HttpStatus.OK);
+	}
+		
+	@GetMapping("/find/{warehouseId}")
+	public ResponseEntity<List<Artifacts>> getAllArtifactsByWarehouseId(@PathVariable("warehouseId") Integer warehouseId) {
+	    List<Artifacts> artifacts = artifactService.findAllArtifactsByWarehouseId(warehouseId);
+	     return new ResponseEntity<>(artifacts, HttpStatus.OK);
+	}
 		
 	}
 	@PostMapping("/add")
