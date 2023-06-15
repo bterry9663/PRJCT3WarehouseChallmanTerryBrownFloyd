@@ -24,7 +24,7 @@ public class ArtifactsServices 	{
 		return artifactsRepo.save(artifact);
 		
 	}
-	public List<Artifacts> findAllArtifacts(){
+	public Iterable<Artifacts> findAllArtifacts(){
 		return artifactsRepo.findAll();
 	}
 	public Artifacts updateArtifact(Artifacts artifact) {
