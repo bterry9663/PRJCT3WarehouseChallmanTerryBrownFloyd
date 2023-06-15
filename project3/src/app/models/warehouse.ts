@@ -2,16 +2,16 @@ export class Warehouse {
     warehouseId: string = '';
      location: string = '';
      manager: string = '';
-     max_capacity: number = 0;
+     max: number = 0;
 
     constructor(warehouseId: string,
                  location: string,
                  manager: string,
-                 max_capacity: number
+                 max: number
                 ) {
         this.warehouseId = warehouseId;
         this.location = location;
         this.manager = manager;
-        this.max_capacity = max_capacity;
+        this.max = max;
     }
 }
