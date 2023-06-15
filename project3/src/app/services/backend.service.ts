@@ -52,8 +52,8 @@ export class BackendService {
     return this.http.get<any>(this.url + 'warehouse',
                               { observe: 'response' });
   }
-  getAllArtifactByWarehouseId(warehouseId: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'warehouse/' + warehouseId + '/items',
+  getAllArtifactsByWarehouseId(warehouseId: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.url + '/items/find/warehouse/' + warehouseId ,
                               { observe: 'response' });
   }
 
