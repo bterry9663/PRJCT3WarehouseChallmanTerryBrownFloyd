@@ -51,6 +51,7 @@ export class WarehousesComponent {
 
   chooseWarehouse(warehouse: Warehouse) {
     this.chosenWarehouseId = (warehouse.warehouseId);
+    this.backendService.currentWarehouseId = warehouse.warehouseId;
      console.log('warehouse' + this.chosenWarehouseId)
     this.router.navigate(['warehouse' + this.chosenWarehouseId]);
   }

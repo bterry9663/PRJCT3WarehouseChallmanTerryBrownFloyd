@@ -19,7 +19,28 @@ localWarehouses: any = [];
 constructor(private backendService: BackendService,
             private fb: FormBuilder) {
 
-  this.getAllArtifacts();
+  if (this.backendService.currentWarehouseId === 0) 
+  {this.getAllArtifacts();}
+  else{
+    this.backendService.getAllArtifactsByWarehouseId(this.backendService.currentWarehouseId).subscribe(data => {
+    
+      console.log(data.body);
+  
+     
+      for (let artifact of data.body) {
+        this.localArtifacts.push(new Artifact(artifact.id,
+                                              artifact.name,
+                                              artifact.timeFrame,
+                                              artifact.origin,
+                                              artifact.shelf,
+                                              artifact.image,
+                                              artifact.warehouseId));
+      }
+  
+      console.log(this.localArtifacts);
+  
+    })
+  }
   this.getAllWarehouses();
 
 }
@@ -70,7 +91,7 @@ getAllArtifacts(): void {
 
    
     for (let artifact of data.body) {
-      this.localArtifacts.push(new Artifact(artifact.id,
+      this.localArtifacts.push(new Artifact(artifact.itemId,
                                             artifact.name,
                                             artifact.timeFrame,
                                             artifact.origin,
@@ -117,12 +138,13 @@ getAllWarehouses(): void {
 
     
     this.localWarehouses.sort((a: Warehouse, b: Warehouse) => a.warehouseId === (b.warehouseId));
+    console.log(this.localWarehouses);
   });
 }
 chosenArtifactId: number = 0;
 
   chooseArtifact(artifact: Artifact): void {
-    this.chosenArtifactId = artifact.id;
+    this.chosenArtifactId = artifact.itemId;
 
     this.addForm.setValue({
       name: artifact.name,

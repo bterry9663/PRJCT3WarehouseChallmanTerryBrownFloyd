@@ -28,7 +28,7 @@ export class ArtifactComponent {
   }
 
   getArtifactDetails() {
-    this.router.navigate(['artifact/details/' + this.artifact.id]);
+    this.router.navigate(['artifact/details/' + this.artifact.itemId]);
   }
 
 }

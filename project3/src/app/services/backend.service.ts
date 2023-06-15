@@ -8,7 +8,7 @@ import { Artifact } from '../models/artifact';
   providedIn: 'root'
 })
 export class BackendService {
-
+  currentWarehouseId: number = 0;
   url: string = environment.backendURL;
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class BackendService {
                               { observe: 'response' });}
 
   deleteArtifactById(artifact: Artifact): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(`${this.url}items/${artifact.id}`, 
+    return this.http.delete<any>(`${this.url}items/${artifact.itemId}`, 
                                   { observe: 'response' });}
 
   deleteArtifactInBody(artifact: Artifact): Observable<HttpResponse<any>> {
@@ -44,7 +44,7 @@ export class BackendService {
                                      .set('warehouseId', artifact.warehouseId)
 ;
 
-    return this.http.put<any>(this.url + 'items/' + artifact.id, {}, { observe: 'response',
+    return this.http.put<any>(this.url + 'items/' + artifact.itemId, {}, { observe: 'response',
                                                                   params: parameters });
   }
 
@@ -53,7 +53,7 @@ export class BackendService {
                               { observe: 'response' });
   }
   getAllArtifactsByWarehouseId(warehouseId: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + '/items/find/warehouse/' + warehouseId ,
+    return this.http.get<any>(this.url + 'items/find/warehouse/' + warehouseId ,
                               { observe: 'response' });
   }
 

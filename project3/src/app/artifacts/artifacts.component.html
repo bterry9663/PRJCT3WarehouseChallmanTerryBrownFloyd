@@ -24,10 +24,10 @@
         <label for="warehouse">Warehouse</label>
         <select name="warehouse" id="warehouse" name="warehouse" formControlName="warehouse">
 
-                <option value="">Select a warehouse...</option>
+                <option value="" selected>Select a warehouse...</option>
 
             <ng-container *ngFor="let warehouse of localWarehouses">
-                <option [value]="warehouse.warehouse_id">{{ warehouse.warehouse_id }}</option>
+                <option [value]="warehouse.warehouseId">Warehouse {{ warehouse.warehouseId }}</option>
             </ng-container>
 
         </select>
@@ -81,7 +81,7 @@
                     'evenRow': i % 2 === 0
                 }"
                  (click)="chooseArtifact(artifact)">
-                    <td>{{ artifact.id }}</td>
+                    <td>{{ artifact.itemId }}</td>
                     <td>{{ artifact.name }}</td>
                     <td>{{ artifact.timeFrame }}</td>
                     <td>{{ artifact.origin }}</td>

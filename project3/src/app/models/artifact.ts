@@ -1,6 +1,6 @@
 
 export class Artifact {
-    id: number = 0;
+    itemId: number = 0;
     name: string = '';
     timeFrame: string = '';
     origin: string = '';
@@ -8,14 +8,14 @@ export class Artifact {
     image: string = '';
     warehouseId: number = 0;
 
-    constructor(id: number,
+    constructor(itemId: number,
                 name: string,
                 timeFrame: string,
                 origin: string,
                 shelf: string,
                 image: string,
                 warehouseId: number) {
-        this.id = id;
+        this.itemId = itemId;
         this.name = name;
         this.timeFrame = timeFrame;
         this.origin = origin;
