@@ -25,8 +25,8 @@ export class BackendService {
                                   { observe: 'response', body: artifact });
   }
 
-  getArtifactById(id: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'items/find/' + id,
+  getArtifactById(itemId: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.url + 'items/find/' + itemId,
                               { observe: 'response' });
   }
 

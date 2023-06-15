@@ -12,7 +12,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'artifacts',
+    path: 'items',
     component: ArtifactsComponent
   },
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
  
 
   {
-    path: 'artifact/details/:id',
+    path: 'items/find/:id',
     component: ArtifactDetailsComponent
   },
   {
