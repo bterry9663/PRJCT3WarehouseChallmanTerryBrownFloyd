@@ -59,12 +59,11 @@ p {
 }
 
 table {
-    margin: auto;
     text-align: left;
     border-collapse: collapse;
     box-shadow: gray 1px 1px 4px;
     border-radius: 6px;
-    
+    width: auto;
 }
 
 tbody tr {
@@ -74,7 +73,7 @@ tbody tr {
 
 th {
     text-align: left;
-    padding: 1em 3em 2em 3em;
+    padding: 2em 3em 2em 3em;
     background-color: #1B353C;
     color: white;
     box-shadow: gray 1px 1px 4px;
@@ -82,7 +81,9 @@ th {
 
 td {
     text-align: left;
-    padding: 1em 3em 2em 3em;
+    padding: 1em 0em 2em 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
