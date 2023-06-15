@@ -5,9 +5,10 @@
 
     <form [formGroup] = "addForm">
 
-      
+        <h2>Add a New Artifact</h2>
+        <h2>Update Artifact</h2>
 
-        <h2 *ngIf="!chosenArtifactId">Add a New Artifact</h2>
+       <h2 *ngIf="!chosenArtifactId">Add a New Artifact</h2>
         <h2 *ngIf="chosenArtifactId">Update Artifact</h2>
 
         <label for="name">Artifact</label>
@@ -20,16 +21,10 @@
 
         </p>
 
-        <label for="timeFrame">Time Period</label>
-        <input type="text" id="timeFrame" name="timeFrame" formControlName="timeFrame">
-
-        <label for="origin">Origin</label>
-        <input type="text" id="origin" name="origin" formControlName="origin">
-
         <label for="warehouse">Warehouse</label>
         <select name="warehouse" id="warehouse" name="warehouse" formControlName="warehouse">
 
-                <option value="" selected>Select a warehouse...</option>
+                <option value="">Select a warehouse...</option>
 
             <ng-container *ngFor="let warehouse of localWarehouses">
                 <option [value]="warehouse.warehouseId">Warehouse {{ warehouse.warehouseId }}</option>
@@ -37,10 +32,14 @@
 
         </select>
 
-        <label for="shelf">Aisle/Shelf</label>
+        <label for="shelf">Current Location</label>
         <input type="text" id="shelf" name="shelf" formControlName="shelf">
 
-        
+        <label for="origin">Genre</label>
+        <input type="text" id="origin" name="origin" formControlName="origin">
+
+        <label for="timeFrame">Time Frame</label>
+        <input type="text" id="timeFrame" name="timeFrame" formControlName="timeFrame">
 
         <label for="image">Image URL</label>
         <input type="text" id="image" name="image" formControlName="image">
@@ -64,8 +63,8 @@
         <thead>
             <tr>
                 <th>Artifact Id</th>
-                <th>Artifact</th>
-                <th>Time Period</th>
+                <th>Name</th>
+                <th>Time Frame</th>
                 <th>Origin</th>
                 <th>Aisle/Shelf</th>
                 <th>Image Link</th>
