@@ -1,20 +1,25 @@
-<main>
-    <h1>View Artifact Details</h1>
 
-    <img [src]="localArtifact.image" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
+<h1>View Artifact Details</h1>
 
+<article>
+
+
+    <div>
+        <img [src]="localArtifact.image" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
+    </div>
+     
     <h2>{{ localArtifact.name }}</h2>
     <h3>{{ localArtifact.warehouseId }} (<span>{{ localArtifact.shelf }}</span>)</h3>
 
     <ul>
-        <li>Time Frame: {{ localArtifact.timeFrame }}</li>
-        <li> Origin: {{ localArtifact.origin }}</li>
+        <li>{{ localArtifact.timeFrame }}</li>
+        <li>{{ localArtifact.origin }}</li>
         <li>Artifact Id: {{ localArtifact.itemId }}</li>
-        <!-- <li>Name: {{ localArtifact.name }}</li>
-        <li>Time Frame: {{ localArtifact.timeFrame }}</li>
-        <li>Origin: {{ localArtifact.origin }}</li>
-        <li>Location: {{ localArtifact.shelf }}</li> -->
-       
     </ul>
     
-</main>
+    <!-- <button (click)="updateArtifact()">UPDATE</button>
+    <button (click)="deleteArtifact()">DELETE</button>
+    <button (click)="getArtifactDetails()">GET ARTIFACT DETAILS</button> --> 
+  
+
+</article>
