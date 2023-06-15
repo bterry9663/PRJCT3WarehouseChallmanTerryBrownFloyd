@@ -25,8 +25,6 @@ import com.skillstorm.services.ArtifactsServices;
 	public class ArtifactsController  {
 		
 		@Autowired
-		private ArtifactsRepository repo;
-		@Autowired
 		private ArtifactsServices artifactService;
 	
 	public ArtifactsController(ArtifactsServices artifactService) {
@@ -34,23 +32,16 @@ import com.skillstorm.services.ArtifactsServices;
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Artifacts>>getAllArtifacts(){
-		List<Artifacts> artifacts = artifactService.findAllArtifacts();
+	public ResponseEntity<Iterable<Artifacts>>getAllArtifacts(){
+		Iterable<Artifacts> artifacts = artifactService.findAllArtifacts();
 		return new ResponseEntity<>(artifacts, HttpStatus.OK);
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Artifacts> getArtifactsById(@PathVariable("id") Integer id){
+	public ResponseEntity<Artifacts> getArtifactsById(@PathVariable("Id") Integer id){
 		Artifacts artifact = artifactService.findArtifactById(id);
 		return new ResponseEntity<>(artifact, HttpStatus.OK);
-	}
 		
-	@GetMapping("/findwarehouse/{warehouseId}")
-	public ResponseEntity<List<Artifacts>> getAllArtifactsByWarehouseId(@PathVariable("warehouseId") Integer warehouseId) {
-	    List<Artifacts> artifacts = artifactService.findAllArtifactsByWarehouseId(warehouseId);
-	     return new ResponseEntity<>(artifacts, HttpStatus.OK);
 	}
-		
-	
 	@PostMapping("/add")
 	public ResponseEntity<Artifacts>addArtifact(@RequestBody Artifacts artifacts){
 		Artifacts newArtifact = artifactService.addArtifact(artifacts);
@@ -66,4 +57,10 @@ import com.skillstorm.services.ArtifactsServices;
 		artifactService.deleteArtifact(null);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	@GetMapping("/find/warehouse/{warehouseId}")
+	public ResponseEntity<List<Artifacts>> getAllArtifactsByWarehouseId(@PathVariable("warehouseId") Integer warehouseId) {
+	    List<Artifacts> artifacts = artifactService.findAllArtifactsByWarehouseId(warehouseId);
+	     return new ResponseEntity<>(artifacts, HttpStatus.OK);
+	}
+	
 }
