@@ -16,7 +16,7 @@ export class ArtifactComponent {
   @Output() updateArtifactEvent = new EventEmitter<Artifact>();
 
   
-  @Input() artifact: Artifact = new Artifact(0, '', '', '', '', '', '');
+  @Input() artifact: Artifact = new Artifact(0, '', '', '', '', '', 0);
  
 
  deleteArtifact(): void {
@@ -28,7 +28,7 @@ export class ArtifactComponent {
   }
 
   getArtifactDetails() {
-    this.router.navigate(['artifact/details/' + this.artifact.artifactId]);
+    this.router.navigate(['artifact/details/' + this.artifact.id]);
   }
 
 }

@@ -1,17 +1,17 @@
 <article>
 
-    <img [src]="artifact.imageUrl" [alt]="artifact.name + ': ' + artifact.warehouseId"> 
+    <img [src]="artifact.image" [alt]="artifact.name + ': ' + artifact.warehouseId"> 
 
     <h2>{{ artifact.name }}</h2>
     <p>{{ artifact.warehouseId }}</p>
     
     <ul>
 
-       <li>{{ artifact.artifactId }}</li>
+       <li>{{ artifact.id }}</li>
        <li>{{ artifact.name }}</li>
-       <li>{{ artifact.time_frame }}</li>
+       <li>{{ artifact.timeFrame }}</li>
        <li>{{ artifact.origin }}</li>
-       <li>{{ artifact.current_location }}</li>
+       <li>{{ artifact.shelf }}</li>
         
     </ul>
 

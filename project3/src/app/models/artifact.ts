@@ -1,26 +1,26 @@
 
 export class Artifact {
-    artifactId: number = 0;
+    id: number = 0;
     name: string = '';
-    time_frame: string = '';
+    timeFrame: string = '';
     origin: string = '';
-    current_location: string = '';
-    imageUrl: string = '';
-    warehouseId: string = '';
+    shelf: string = '';
+    image: string = '';
+    warehouseId: number = 0;
 
-    constructor(artifactId: number,
+    constructor(id: number,
                 name: string,
-                time_frame: string,
+                timeFrame: string,
                 origin: string,
-                current_location: string,
-                imageUrl: string,
-                warehouseId: string) {
-        this.artifactId = artifactId;
+                shelf: string,
+                image: string,
+                warehouseId: number) {
+        this.id = id;
         this.name = name;
-        this.time_frame = time_frame;
+        this.timeFrame = timeFrame;
         this.origin = origin;
-        this.current_location = current_location;
-        this.imageUrl = imageUrl;
+        this.shelf = shelf;
+        this.image = image;
         this.warehouseId = warehouseId;
     }
 

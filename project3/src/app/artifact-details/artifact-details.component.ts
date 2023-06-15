@@ -11,18 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArtifactDetailsComponent {
 
-  localArtifact: Artifact = new Artifact(0, '', '', '', '', '', '');
+  localArtifact: Artifact = new Artifact(0, '', '', '', '', '', 0);
 
   constructor(private backendService: BackendService,
               private activatedRoute: ActivatedRoute) {
 
     this.backendService.getArtifactById(this.activatedRoute.snapshot.params['id']).subscribe(data => {
-      this.localArtifact = new Artifact(data.body.ArtifactId,
+      this.localArtifact = new Artifact(data.body.id,
                                         data.body.name,
-                                        data.body.time_frame,
+                                        data.body.timeFrame,
                                         data.body.origin,
-                                        data.body.current_location,
-                                        data.body.imageUrl,
+                                        data.body.shelf,
+                                        data.body.image,
                                         data.body.warehouseId);
     })
 

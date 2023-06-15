@@ -17,7 +17,7 @@ export class BackendService {
                               { observe: 'response' });}
 
   deleteArtifactById(artifact: Artifact): Observable<HttpResponse<any>> {
-    return this.http.delete<any>(`${this.url}items/${artifact.artifactId}`, 
+    return this.http.delete<any>(`${this.url}items/${artifact.id}`, 
                                   { observe: 'response' });}
 
   deleteArtifactInBody(artifact: Artifact): Observable<HttpResponse<any>> {
@@ -25,8 +25,8 @@ export class BackendService {
                                   { observe: 'response', body: artifact });
   }
 
-  getArtifactById(artifactId: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'items/find/' + artifactId,
+  getArtifactById(id: number): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.url + 'items/find/' + id,
                               { observe: 'response' });
   }
 
@@ -38,13 +38,13 @@ export class BackendService {
 
     let parameters = new HttpParams().set('name', artifact.name)
                                      .set('origin', artifact.origin)
-                                     .set('time_frame', artifact.time_frame)
-                                     .set('current_location', artifact.current_location)
-                                     .set('imageUrl', artifact.imageUrl)
+                                     .set('timeFrame', artifact.timeFrame)
+                                     .set('shelf', artifact.shelf)
+                                     .set('image', artifact.image)
                                      .set('warehouseId', artifact.warehouseId)
 ;
 
-    return this.http.put<any>(this.url + 'items/' + artifact.artifactId, {}, { observe: 'response',
+    return this.http.put<any>(this.url + 'items/' + artifact.id, {}, { observe: 'response',
                                                                   params: parameters });
   }
 

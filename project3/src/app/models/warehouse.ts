@@ -1,10 +1,10 @@
 export class Warehouse {
-    warehouseId: string = '';
+    warehouseId: number = 0;
      location: string = '';
      manager: string = '';
      max: number = 0;
 
-    constructor(warehouseId: string,
+    constructor(warehouseId: number,
                  location: string,
                  manager: string,
                  max: number
