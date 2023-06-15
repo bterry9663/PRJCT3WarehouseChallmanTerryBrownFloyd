@@ -17,7 +17,7 @@ export class ArtifactDetailsComponent {
               private activatedRoute: ActivatedRoute) {
 
     this.backendService.getArtifactById(this.activatedRoute.snapshot.params['id']).subscribe(data => {
-      this.localArtifact = new Artifact(data.body.id,
+      this.localArtifact = new Artifact(data.body.itemId,
                                         data.body.name,
                                         data.body.timeFrame,
                                         data.body.origin,

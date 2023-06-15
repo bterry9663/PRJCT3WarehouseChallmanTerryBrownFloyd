@@ -28,7 +28,7 @@ constructor(private backendService: BackendService,
   
      
       for (let artifact of data.body) {
-        this.localArtifacts.push(new Artifact(artifact.id,
+        this.localArtifacts.push(new Artifact(artifact.itemId,
                                               artifact.name,
                                               artifact.timeFrame,
                                               artifact.origin,

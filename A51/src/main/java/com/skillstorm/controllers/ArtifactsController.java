@@ -37,7 +37,7 @@ import com.skillstorm.services.ArtifactsServices;
 		return new ResponseEntity<>(artifacts, HttpStatus.OK);
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Artifacts> getArtifactsById(@PathVariable("Id") Integer id){
+	public ResponseEntity<Artifacts> getArtifactsById(@PathVariable("id") Integer id){
 		Artifacts artifact = artifactService.findArtifactById(id);
 		return new ResponseEntity<>(artifact, HttpStatus.OK);
 		
@@ -58,8 +58,8 @@ import com.skillstorm.services.ArtifactsServices;
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	@GetMapping("/find/warehouse/{warehouseId}")
-	public ResponseEntity<List<Artifacts>> getAllArtifactsByWarehouseId(@PathVariable("warehouseId") Integer warehouseId) {
-	    List<Artifacts> artifacts = artifactService.findAllArtifactsByWarehouseId(warehouseId);
+	public ResponseEntity<Iterable<Artifacts>> getAllArtifactsByWarehouseId(@PathVariable("warehouseId") Integer warehouseId) {
+		Iterable<Artifacts> artifacts = artifactService.findAllArtifactsByWarehouseId(warehouseId);
 	     return new ResponseEntity<>(artifacts, HttpStatus.OK);
 	}
 	
