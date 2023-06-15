@@ -47,6 +47,8 @@ form button {
     font-weight: bold;
     margin-right: 10px;
     border-radius: 20px;
+    background-color: #1B353C;
+    color: white;
     box-shadow: gray 1px 1px 4px;
 }
 
