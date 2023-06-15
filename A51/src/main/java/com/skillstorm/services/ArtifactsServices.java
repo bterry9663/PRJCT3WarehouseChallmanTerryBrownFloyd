@@ -35,7 +35,7 @@ public class ArtifactsServices 	{
 				.orElseThrow(() -> new ArtifactNotFoundException("Artifact by id " + id + " was not found"));
 	}
 	public List<Artifacts> findAllArtifactsByWarehouseId(Integer warehouseId) {
-		return artifactsRepo.findAll();
+		return artifactsRepo.findAllArtifactsByWarehouseId(warehouseId);
 	}
 	public void deleteArtifact(Integer id) {
 		artifactsRepo.deleteArtifactById(id);

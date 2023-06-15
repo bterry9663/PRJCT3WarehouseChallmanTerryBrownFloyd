@@ -13,7 +13,8 @@ public interface ArtifactsRepository extends JpaRepository<Artifacts, Integer >{
 	void deleteArtifactById(Integer id);
 
 	Optional<Artifacts> findArtifactById(Integer id);
-
+	
+	List<Artifacts> findAllArtifactsByWarehouseId(Integer warehouseId);
 	
 
 }
