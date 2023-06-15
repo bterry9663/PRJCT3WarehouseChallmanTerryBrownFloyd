@@ -1,9 +1,4 @@
-
-
-
-
-
-<!-- <article>
+<article>
 
     <img [src]="artifact.imageUrl" [alt]="artifact.name + ': ' + artifact.warehouseId"> 
 
@@ -11,8 +6,12 @@
     <p>{{ artifact.warehouseId }}</p>
     
     <ul>
-       <li>Time Frame: {{ artifact.time_frame }}</li>
-        <li>Origin: {{ artifact.origin }}</li>
+
+       <li>{{ artifact.artifactId }}</li>
+       <li>{{ artifact.name }}</li>
+       <li>{{ artifact.time_frame }}</li>
+       <li>{{ artifact.origin }}</li>
+       <li>{{ artifact.current_location }}</li>
         
     </ul>
 
@@ -20,5 +19,5 @@
     <button (click)="updateArtifact()">UPDATE</button>
     <button (click)="deleteArtifact()">DELETE</button>
     <button (click)="getArtifactDetails()">GET ARTIFACT DETAILS</button>
-
-</article> -->
+  
+</article> 

@@ -1,9 +1,18 @@
 <main>
-    <h1>View All Warehouses</h1>
+    <h1>All Warehouses</h1>
 
     <h3 *ngIf="!localWarehouses.length" style="color: red;">No Warehouse in the database!</h3>
 
-    <table *ngIf="localWarehouses.length">
+    <!-- <ng-container *ngFor="let album of localWarehouses"> 
+
+        <app-warehouse [warehouse]="warehouse" >
+        </app-warehouse>
+
+    </ng-container> -->
+
+</main> 
+
+<!--    <table *ngIf="localWarehouses.length">
 
         <thead>
             <tr>
@@ -33,7 +42,4 @@
 
         </tbody>
 
-    </table>
-
-</main> 
-
+    </table>-->

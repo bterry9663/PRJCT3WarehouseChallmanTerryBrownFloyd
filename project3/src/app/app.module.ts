@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArtifactDetailsComponent } from './artifact-details/artifact-details.component';
+import { WarehouseComponent } from './warehouse/warehouse.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ArtifactDetailsComponent } from './artifact-details/artifact-details.co
     NavComponent,
     WarehousesComponent,
     HomeComponent,
-    ArtifactDetailsComponent
+    ArtifactDetailsComponent,
+    WarehouseComponent
   ],
   imports: [
     BrowserModule,
