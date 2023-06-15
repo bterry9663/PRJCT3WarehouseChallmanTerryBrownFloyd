@@ -1,19 +1,19 @@
 <main>
     <h1>View Artifact Details</h1>
 
-    <img [src]="localArtifact.imageUrl" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
+    <img [src]="localArtifact.image" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
 
     <h2>{{ localArtifact.name }}</h2>
-    <h3>{{ localArtifact.warehouseId }} (<span>{{ localArtifact.current_location }}</span>)</h3>
+    <h3>{{ localArtifact.warehouseId }} (<span>{{ localArtifact.shelf }}</span>)</h3>
 
     <ul>
-        <li>Time Frame: {{ localArtifact.time_frame }}</li>
+        <li>Time Frame: {{ localArtifact.timeFrame }}</li>
         <li> Origin: {{ localArtifact.origin }}</li>
-        <li>Artifact Id: {{ localArtifact.artifactId }}</li>
+        <li>Artifact Id: {{ localArtifact.id }}</li>
         <li>Name: {{ localArtifact.name }}</li>
-        <li>Time Frame: {{ localArtifact.time_frame }}</li>
+        <li>Time Frame: {{ localArtifact.timeFrame }}</li>
         <li>Origin: {{ localArtifact.origin }}</li>
-        <li>Location: {{ localArtifact.current_location }}</li>
+        <li>Location: {{ localArtifact.shelf }}</li>
        
     </ul>
     

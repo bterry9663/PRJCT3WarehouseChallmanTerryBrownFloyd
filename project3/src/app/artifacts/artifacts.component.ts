@@ -29,13 +29,13 @@ addForm = this.fb.group(
   {
     name: ['', Validators.compose([Validators.required,
                                     Validators.maxLength(1000)])],
-    time_frame: ['', Validators.compose([Validators.required,
+    timeFrame: ['', Validators.compose([Validators.required,
                                     Validators.maxLength(1000)])],
     origin: ['', Validators.compose([Validators.required,
                                     Validators.maxLength(1000)])],
-    current_location: ['', Validators.compose([Validators.required,
+    shelf: ['', Validators.compose([Validators.required,
                                               Validators.maxLength(1000)])],
-    imageUrl: ['', Validators.compose([Validators.required,
+    image: ['', Validators.compose([Validators.required,
                                        Validators.maxLength(1000)])],
     warehouseId: ['', Validators.compose([Validators.required,
                                           Validators.min(1),
@@ -46,17 +46,17 @@ addForm = this.fb.group(
 get name() {
   return this.addForm.get('name');
 }
-get time_frame() {
-  return this.addForm.get('time_frame');
+get timeFrame() {
+  return this.addForm.get('timeFrame');
 }
 get origin() {
   return this.addForm.get('origin');
 }
-get current_location() {
-  return this.addForm.get('current_location');
+get shelf() {
+  return this.addForm.get('shelf');
 }
-get imageUrl() {
-  return this.addForm.get('imageUrl');
+get image() {
+  return this.addForm.get('image');
 }
 get warehouseId() {
   return this.addForm.get('warehouseId');
@@ -70,12 +70,12 @@ getAllArtifacts(): void {
 
    
     for (let artifact of data.body) {
-      this.localArtifacts.push(new Artifact(artifact.artifactId,
+      this.localArtifacts.push(new Artifact(artifact.id,
                                             artifact.name,
-                                            artifact.time_frame,
+                                            artifact.timeFrame,
                                             artifact.origin,
-                                            artifact.current_location,
-                                            artifact.imageUrl,
+                                            artifact.shelf,
+                                            artifact.image,
                                             artifact.warehouseId));
     }
 
@@ -94,11 +94,11 @@ deleteArtifact(artifact: Artifact): void {
 addArtifact(): void {
   this.backendService.addArtifactInBody(new Artifact(0,
                                                this.name?.value!,
-                                               this.time_frame?.value!,
+                                               this.timeFrame?.value!,
                                                this.origin?.value!,
-                                               this.current_location?.value!,
-                                               this.imageUrl?.value!,
-                                               this.warehouseId?.value!
+                                               this.shelf?.value!,
+                                               this.image?.value!,
+                                               Number(this.warehouseId?.value!)
                                                ))
                      .subscribe(() => this.getAllArtifacts());
 }
@@ -111,7 +111,7 @@ getAllWarehouses(): void {
       this.localWarehouses.push(new Warehouse(warehouse.warehouseId,
                                         warehouse.location, 
                                         warehouse.manager, 
-                                        warehouse.max_capacity
+                                        warehouse.max
                                         ));
     };
 
@@ -122,15 +122,15 @@ getAllWarehouses(): void {
 chosenArtifactId: number = 0;
 
   chooseArtifact(artifact: Artifact): void {
-    this.chosenArtifactId = artifact.artifactId;
+    this.chosenArtifactId = artifact.id;
 
     this.addForm.setValue({
       name: artifact.name,
-      time_frame: artifact.time_frame,
+      timeFrame: artifact.timeFrame,
       origin: artifact.origin,
-      current_location: artifact.current_location,
-      warehouseId: artifact.warehouseId,
-      imageUrl: artifact.imageUrl
+      shelf: artifact.shelf,
+      warehouseId: String(artifact.warehouseId),
+      image: artifact.image
     })
 
   }
@@ -143,11 +143,11 @@ chosenArtifactId: number = 0;
   updateArtifact(): void {
     this.backendService.updateArtifactWithParams(new Artifact(this.chosenArtifactId,
                                                         this.name?.value!,
-                                                        this.time_frame?.value!,
+                                                        this.timeFrame?.value!,
                                                         this.origin?.value!,
-                                                        this.current_location?.value!,
-                                                        this.imageUrl?.value!,
-                                                        this.warehouseId?.value!
+                                                        this.shelf?.value!,
+                                                        this.image?.value!,
+                                                        Number(this.warehouseId?.value!)
                                                         ))
                         .subscribe(() => {
                           this.getAllArtifacts();

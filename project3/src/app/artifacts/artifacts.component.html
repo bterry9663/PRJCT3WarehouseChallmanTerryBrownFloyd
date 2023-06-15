@@ -32,17 +32,17 @@
 
         </select>
 
-        <label for="current_location">Current Location</label>
-        <input type="text" id="current_location" name="current_location" formControlName="current_location">
+        <label for="shelf">Current Location</label>
+        <input type="text" id="shelf" name="shelf" formControlName="shelf">
 
         <label for="origin">Genre</label>
         <input type="text" id="origin" name="origin" formControlName="origin">
 
-        <label for="time_frame">Time Frame</label>
-        <input type="text" id="time_frame" name="time_frame" formControlName="time_frame">
+        <label for="timeFrame">Time Frame</label>
+        <input type="text" id="timeFrame" name="timeFrame" formControlName="timeFrame">
 
-        <label for="image_link">Image URL</label>
-        <input type="text" id="image_link" name="image_link" formControlName="image_link">
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image" formControlName="image">
 
         <div>
             <button>ADD NEW ARTIFACT</button>
@@ -81,12 +81,12 @@
                     'evenRow': i % 2 === 0
                 }"
                  (click)="chooseArtifact(artifact)">
-                    <td>{{ artifact.artifactId }}</td>
+                    <td>{{ artifact.id }}</td>
                     <td>{{ artifact.name }}</td>
-                    <td>{{ artifact.time_frame }}</td>
+                    <td>{{ artifact.timeFrame }}</td>
                     <td>{{ artifact.origin }}</td>
-                    <td>{{ artifact.current_location }}</td>
-                    <td>{{ artifact.imageUrl}}</td>
+                    <td>{{ artifact.shelf }}</td>
+                    <td>{{ artifact.image}}</td>
                     <td>{{ artifact.warehouseId }}</td>
                 </tr>
 

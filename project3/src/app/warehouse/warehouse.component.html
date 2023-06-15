@@ -1,15 +1,15 @@
-<!-- <article>
-
+ <article>
+    <ng-container *ngFor="let warehouse of localWarehouseContents; let i = index;">
     <h2>{{ warehouse.warehouseId }}</h2>
     
     <ul>
 
        <li>{{ warehouse.location }}</li>
        <li>{{ warehouse.manager }}</li>
-       <li>{{ warehouse.max_capacity }}</li>
+       <li>{{ warehouse.max }}</li>
         
     </ul>
 
-    <button (click)="viewWarehouse()">View Contents</button>
-  
-</article> -->
+    <!-- <button (click)="viewWarehouse()">View Contents</button> -->
+    </ng-container >
+</article> 

@@ -3,16 +3,16 @@
 
     <h3 *ngIf="!localWarehouses.length" style="color: red;">No Warehouse in the database!</h3>
 
-    <!-- <ng-container *ngFor="let album of localWarehouses"> 
+    <!-- <ng-container *ngFor="let warehouse of localWarehouses"> 
 
         <app-warehouse [warehouse]="warehouse" >
         </app-warehouse>
 
-    </ng-container> -->
+    </ng-container>  -->
 
 </main> 
 
-<!--    <table *ngIf="localWarehouses.length">
+    <table *ngIf="localWarehouses.length">
 
         <thead>
             <tr>
@@ -30,8 +30,8 @@
                 <tr [ngClass]="{
                     'oddRow': i % 2 === 1,
                     'evenRow': i % 2 === 0
-                }"
-                 (click)="chooseWarehouse(warehouse)">
+                }"(click)="chooseWarehouse(warehouse)">
+                 
                     <td>{{ warehouse.warehouseId }}</td>
                     <td>{{ warehouse.location }}</td>
                     <td>{{ warehouse.manager }}</td>
@@ -42,4 +42,4 @@
 
         </tbody>
 
-    </table>-->
+    </table>
