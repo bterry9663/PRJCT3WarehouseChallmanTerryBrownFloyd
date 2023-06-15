@@ -14,7 +14,7 @@ public interface ArtifactsRepository extends JpaRepository<Artifacts, Integer >{
 
 	Optional<Artifacts> findArtifactById(Integer id);
 	
-	List<Artifacts> findAllArtifactsByWarehouseID(Integer warehouseId);
+	List<Artifacts> findAllArtifactsByWarehouseId(Integer warehouseId);
 	
 
 }
