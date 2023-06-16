@@ -3,6 +3,7 @@ import { BackendService } from '../services/backend.service';
 import { Artifact } from '../models/artifact';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Warehouse } from '../models/warehouse';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ localWarehouses: any = [];
 
 
 constructor(private backendService: BackendService,
-            private fb: FormBuilder) {
+            private fb: FormBuilder, private router: Router) {
 
   if (this.backendService.currentWarehouseId === 0) 
   {this.getAllArtifacts();}
@@ -177,6 +178,19 @@ chosenArtifactId: number = 0;
                           this.chosenArtifactId = 0;
                         });
   }
+
+  getArtifactDetail(itemId:Number){
+    this.router.navigate(['items/find/' + itemId]);
+
+  }
+
+
+
+
+
+
+
+
 
 
 }
