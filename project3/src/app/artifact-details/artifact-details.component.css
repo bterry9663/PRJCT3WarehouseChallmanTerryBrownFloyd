@@ -1,6 +1,8 @@
 h1 {
     text-align: center;
-    margin-top: 4em;
+    margin-top: .4em;
+    margin-bottom: .4em;
+    font-size: 500% ;
 }
 
 article {
@@ -30,7 +32,8 @@ img {
 h2 {
     font-style: italic;
     text-align: center;
-    
+    font-size: 3em;
+    margin-bottom: 5px;
 }
 
 h3 {
@@ -42,6 +45,7 @@ h3 {
 
 ul {
     margin-bottom: 10px;
+    font-size: larger;
 }
 
 button {
