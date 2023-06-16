@@ -1,5 +1,5 @@
 
-<h1>View Artifact Details</h1>
+<h1>Artifact Details</h1>
 
 <article>
 
@@ -8,18 +8,16 @@
         <img [src]="localArtifact.image" [alt]="localArtifact.name + ' in ' + localArtifact.warehouseId">
     </div>
      
-    <h2>{{ localArtifact.name }}</h2>
-    <h3>{{ localArtifact.warehouseId }} (<span>{{ localArtifact.shelf }}</span>)</h3>
+    <h2> {{ localArtifact.name }}</h2>
+    <h3>LOCATION: Warehouse {{ localArtifact.warehouseId }} : (<span>{{ localArtifact.shelf }}</span>)</h3>
 
     <ul>
-        <li>{{ localArtifact.timeFrame }}</li>
-        <li>{{ localArtifact.origin }}</li>
-        <li>Artifact Id: {{ localArtifact.itemId }}</li>
+        <li> Artifact Time Period: {{ localArtifact.timeFrame }}</li>
+        <li> Artifact Origin: {{ localArtifact.origin }}</li>
+        <li>Artifact Numerical Identifier: {{ localArtifact.itemId }}</li>
     </ul>
     
-    <!-- <button (click)="updateArtifact()">UPDATE</button>
-    <button (click)="deleteArtifact()">DELETE</button>
-    <button (click)="getArtifactDetails()">GET ARTIFACT DETAILS</button> --> 
+    
   
 
 </article>
