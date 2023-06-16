@@ -42,11 +42,11 @@
         </select>
 
         <div>
-            <button>ADD NEW ARTIFACT</button>
+            <button (click)="addArtifact()">ADD NEW ARTIFACT</button>
 
-            <button>UPDATE ARTIFACT</button>
+            <button (click)="updateArtifact()">UPDATE ARTIFACT</button>
 
-            <button>CANCEL UPDATE</button>
+            <button (click)="deleteArtifact(chosenArtifact)"> DELETE ARTIFACT</button>
         </div>
 
     </form>

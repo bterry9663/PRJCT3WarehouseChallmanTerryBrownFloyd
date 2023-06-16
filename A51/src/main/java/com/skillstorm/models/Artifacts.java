@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name = "items")
 public class Artifacts {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id")
 	private int id;
 	@Column(name = "name")
