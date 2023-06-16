@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.skillstorm.models.Artifacts;
 import com.skillstorm.repositories.ArtifactsRepository;
 import com.skillstorm.services.ArtifactsServices;
@@ -23,6 +22,9 @@ import com.skillstorm.services.ArtifactsServices;
 	@RequestMapping("/items")
 	@CrossOrigin("*")
 	public class ArtifactsController  {
+		
+		@Autowired
+		private ArtifactsRepository artifactsRepo;
 		
 		@Autowired
 		private ArtifactsServices artifactService;
@@ -42,11 +44,26 @@ import com.skillstorm.services.ArtifactsServices;
 		return new ResponseEntity<>(artifact, HttpStatus.OK);
 		
 	}
-	@PostMapping("/add")
-	public ResponseEntity<Artifacts>addArtifact(@RequestBody Artifacts artifacts){
-		Artifacts newArtifact = artifactService.addArtifact(artifacts);
-		return new ResponseEntity<>(newArtifact, HttpStatus.CREATED);
+	
+//	@PostMapping("/add")
+//	public ResponseEntity<Artifacts>addArtifact(@RequestBody Artifacts artifacts){
+//		Artifacts newArtifact = artifactService.addArtifact(artifacts);
+//		return new ResponseEntity<>(newArtifact, HttpStatus.CREATED);
+//	}
+	
+	@PostMapping
+	public ResponseEntity<Artifacts> addArtifact(@RequestBody Artifacts artifacts) {
+		// if the record with that id already exists, don't overwrite it
+		if (artifactsRepo.existsById(artifacts.getItemId())) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(artifacts);
+		// if it doesn't, add a new one
+		} else {
+			return ResponseEntity.status(HttpStatus.CREATED).body(artifactsRepo.save(artifacts));
+		}
 	}
+	
+	
+	
 	@PutMapping("/update")
 	public ResponseEntity<Artifacts>updateArtifact(@RequestBody Artifacts artifacts){
 		Artifacts updateArtifact = artifactService.updateArtifact(artifacts);

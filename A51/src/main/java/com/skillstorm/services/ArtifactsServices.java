@@ -2,7 +2,7 @@ package com.skillstorm.services;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.exception.ArtifactNotFoundException;
@@ -11,7 +11,9 @@ import com.skillstorm.repositories.ArtifactsRepository;
 
 @Service
 public class ArtifactsServices 	{
-	private final ArtifactsRepository artifactsRepo;
+	
+	@Autowired
+	private /*final*/ ArtifactsRepository artifactsRepo;
 
 
     ArtifactsServices(ArtifactsRepository artifactsRepo) {
