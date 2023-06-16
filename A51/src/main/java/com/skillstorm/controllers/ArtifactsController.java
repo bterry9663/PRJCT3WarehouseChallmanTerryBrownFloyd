@@ -69,13 +69,15 @@ import com.skillstorm.services.ArtifactsServices;
 	
 	@DeleteMapping
 	public ResponseEntity<Artifacts>deleteArtifact(@RequestBody Artifacts artifacts){
-		if (artifactsRepo.findById(artifacts.getItemId()).isPresent() &&
-				artifacts.equals(artifactsRepo.findById(artifacts.getItemId()).get())) {
+//		if (artifactsRepo.findById(artifacts.getItemId()).isPresent() &&
+//				artifacts.equals(artifactsRepo.findById(artifacts.getItemId()).get())) 
+		{
 			artifactsRepo.delete(artifacts);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(artifacts);
-		} else {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(artifacts);
-		}
+		} 
+//		else {
+//			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(artifacts);
+//		}
 	
 	}
 	@DeleteMapping("/{id}")

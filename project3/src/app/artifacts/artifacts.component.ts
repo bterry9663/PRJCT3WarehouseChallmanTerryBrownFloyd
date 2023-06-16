@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Artifact } from '../models/artifact';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -106,11 +106,21 @@ getAllArtifacts(): void {
   });
 }
 
+@Output() deleteArtifactEvent = new EventEmitter<Artifact>();
+@Input() artifact: Artifact = new Artifact(0, '', '', '', '' ,'' , 0);
+
+deleteArtifact2(): void {
+  this.deleteArtifactEvent.emit(this.artifact);
+}
+
+
+
+
 
 
 // TODO: debug the refresh
 deleteArtifact(artifact: Artifact): void {
-  this.backendService.deleteArtifactInBody(artifact).subscribe(() => this.getAllArtifacts());
+  this.backendService.deleteArtifactById(artifact).subscribe(() => this.getAllArtifacts());
 }
 
 addArtifact(): void {
@@ -143,19 +153,19 @@ getAllWarehouses(): void {
   });
 }
 chosenArtifactId: number = 0;
-
+chosenArtifact: Artifact = this.artifact;
   chooseArtifact(artifact: Artifact): void {
     this.chosenArtifactId = artifact.itemId;
-
+this.chosenArtifact = artifact;
     this.addForm.setValue({
       name: artifact.name,
       timeFrame: artifact.timeFrame,
       origin: artifact.origin,
       shelf: artifact.shelf,
-      warehouseId: String(artifact.warehouseId),
-      image: artifact.image
+      image: artifact.image,
+      warehouseId: String(artifact.warehouseId)
     })
-
+    console.log('chosen artifact'+ artifact.itemId);
   }
 
   cancelUpdate(): void {
@@ -166,8 +176,8 @@ chosenArtifactId: number = 0;
   updateArtifact(): void {
     this.backendService.updateArtifactWithParams(new Artifact(this.chosenArtifactId,
                                                         this.name?.value!,
-                                                        this.timeFrame?.value!,
                                                         this.origin?.value!,
+                                                        this.timeFrame?.value!,
                                                         this.shelf?.value!,
                                                         this.image?.value!,
                                                         Number(this.warehouseId?.value!)
@@ -177,6 +187,7 @@ chosenArtifactId: number = 0;
                           this.addForm.reset();
                           this.chosenArtifactId = 0;
                         });
+                        console.log(this.name);
   }
 
   getArtifactDetail(itemId:Number){

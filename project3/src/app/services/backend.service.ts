@@ -26,7 +26,7 @@ export class BackendService {
   }
 
   getArtifactById(itemId: number): Observable<HttpResponse<any>> {
-    return this.http.get<any>(this.url + 'items/find/' + itemId,
+    return this.http.get<any>(this.url + 'items/' + itemId,
                               { observe: 'response' });
   }
 
@@ -44,7 +44,7 @@ export class BackendService {
                                      .set('warehouseId', artifact.warehouseId)
 ;
 
-    return this.http.put<any>(this.url + 'items/' + artifact.itemId, {}, { observe: 'response',
+    return this.http.put<any>(this.url + 'items/update' , {}, { observe: 'response',
                                                                   params: parameters });
   }
 
