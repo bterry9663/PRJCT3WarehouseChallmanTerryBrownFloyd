@@ -88,7 +88,7 @@ public class Artifacts {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(image, id, name, origin, shelf, timeFrame, warehouseId);
+		return Objects.hash( id, name, origin, timeFrame, shelf,image, warehouseId);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -99,9 +99,15 @@ public class Artifacts {
 		if (getClass() != obj.getClass())
 			return false;
 		Artifacts other = (Artifacts) obj;
-		return Objects.equals(image, other.image) && id == other.id && Objects.equals(name, other.name)
-				&& Objects.equals(origin, other.origin) && Objects.equals(shelf, other.shelf)
-				&& Objects.equals(timeFrame, other.timeFrame) && warehouseId == other.warehouseId;
+		return id == other.id && Objects.equals(name, other.name)&& Objects.equals(origin, other.origin) &&
+				Objects.equals(timeFrame, other.timeFrame) && Objects.equals(shelf, other.shelf)&& 
+				 Objects.equals(image, other.image) && warehouseId == other.warehouseId;
+				
+				
+				
+				
+				
+				
 	}
 	@Override
 	public String toString() {
