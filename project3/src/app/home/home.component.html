@@ -5,55 +5,25 @@
     <h2>Our Warehouses</h2>
 
     <article>
+
         <ng-container *ngFor="let warehouse of localWarehouses; let i = index;">
-        <object>
-            <h2>Warehouse {{ warehouse.warehouseId }}</h2>
-            <ul>
-                <li>Location: {{ warehouse.location }}</li>
-                <li>Manager: {{ warehouse.manager }}</li>
-                <li>Capacity: {{ warehouse.max }}</li>
-            </ul>
-            <!-- <button>view</button> -->
-        </object> 
+       
+            <object>
 
-        <!-- <object>
-            <h2>Warehouse2</h2>
-            <ul>
-                <li>Location: {{ warehouse.location }}</li>
-                <li>Manager: {{ warehouse.manager }}</li>
-                <li>Capacity: {{ warehouse.max }}</li>
-            </ul> -->
-        <!-- <button>view</button> -->
-        <!-- </object>
+                <h2>Warehouse {{ warehouse.warehouseId }}</h2>
 
-        <object>
-            <h2>Warehouse3</h2>
-            <ul>
-                <li>Location: {{ warehouse.location }}</li>
-                <li>Manager: {{ warehouse.manager }}</li>
-                <li>Capacity: {{ warehouse.max }}</li>
-            </ul> -->
-            <!-- <button>view</button>
-        </object> -->
+                <ul>
+                    <li>Location: {{ warehouse.location }}</li>
+                    <li>Manager: {{ warehouse.manager }}</li>
+                    <li>Capacity: {{ warehouse.max }}</li>
+                </ul>
+            
+            </object> 
 
-        <!-- <object>
-            <h2>Warehouse4</h2>
-            <ul>
-                <li>Location: {{ warehouse.location }}</li>
-                <li>Manager: {{ warehouse.manager }}</li>
-                <li>Capacity: {{ warehouse.max }}</li>
-            </ul> -->
-            <!-- <button>view</button> -->
-        <!-- </object> -->
-    </ng-container>
+        </ng-container>
+
     </article>
 
-    <ng-container *ngFor="let artifact of localArtifacts">
 
-        
-            <app-artifact [artifact]="artifact">
 
-        </app-artifact>
-
-    </ng-container>
 </main>
