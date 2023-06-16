@@ -64,7 +64,7 @@
                 <th>Time Period</th>
                 <th>Origin</th>
                 <th>Aisle/Shelf</th>
-                <th>Image URL</th>
+                <th>Artifact Details</th>
                 <th>Warehouse Id</th>
          </tr>
         </thead>
@@ -83,7 +83,7 @@
                     <td>{{ artifact.timeFrame }}</td>
                     <td>{{ artifact.origin }}</td>
                     <td>{{ artifact.shelf }}</td>
-                    <td>{{ artifact.image}}</td>
+                    <td> <button (click)="getArtifactDetail(artifact.itemId)">{{ artifact.name }}</button></td> 
                     <td>{{ artifact.warehouseId }}</td>
                 </tr>
 
