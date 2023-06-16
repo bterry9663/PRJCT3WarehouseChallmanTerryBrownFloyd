@@ -11,16 +11,14 @@ import com.skillstorm.repositories.ArtifactsRepository;
 
 @Service
 public class ArtifactsServices 	{
-	
 	@Autowired
-	private /*final*/ ArtifactsRepository artifactsRepo;
+	private ArtifactsRepository artifactsRepo;
 
 
     ArtifactsServices(ArtifactsRepository artifactsRepo) {
         this.artifactsRepo = artifactsRepo;
     }
 	
-		
 	public Artifacts addArtifact(Artifacts artifact) {
 		artifact.setItemId(0);
 		return artifactsRepo.save(artifact);
@@ -32,14 +30,15 @@ public class ArtifactsServices 	{
 	public Artifacts updateArtifact(Artifacts artifact) {
 		return artifactsRepo.save(artifact);
 	}
-	public Artifacts findArtifactById(Integer id) {
-		return artifactsRepo.findArtifactById(id)
-				.orElseThrow(() -> new ArtifactNotFoundException("Artifact by id " + id + " was not found"));
+	public Artifacts findArtifactById(Integer itemId) {
+		return artifactsRepo.findArtifactById(itemId)
+				.orElseThrow(() -> new ArtifactNotFoundException("Artifact by id " + itemId + " was not found"));
+		
 	}
-	public Iterable<Artifacts> findAllArtifactsByWarehouseId(Integer warehouseId) {
+	public List<Artifacts> findAllArtifactsByWarehouseId(Integer warehouseId) {
 		return artifactsRepo.findAllArtifactsByWarehouseId(warehouseId);
 	}
-	public void deleteArtifact(Integer id) {
-		artifactsRepo.deleteArtifactById(id);
+	public void deleteArtifact(Integer itemId) {
+		artifactsRepo.deleteArtifactById(itemId);
 	}
 }
