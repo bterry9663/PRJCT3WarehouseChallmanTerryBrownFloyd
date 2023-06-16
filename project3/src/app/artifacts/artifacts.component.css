@@ -102,6 +102,17 @@ td {
     background-color: darkgray;
 }
 
-div{
-
+table button {
+    display:center;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 2em;
+    padding: 10px 50px ;
+    font-weight: bold;
+    margin-right: 2em;
+    border-radius: 20px;
+    background-color: #1B353C;
+    color: white;
+    box-shadow: gray 1px 1px 4px;
+    align-items: center;
 }
